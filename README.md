@@ -228,7 +228,7 @@ O CameraGuard continuará evoluindo além da primeira release pública. O roadma
 Está planejada a expansão do CameraGuard para outros sistemas operacionais:
 
 - **Windows ARM64** — planejado como uma futura build nativa, mantendo a base atual e adaptando dependências/binários nativos quando necessário.
-- **Linux** — versão planejada com **Flatpak como formato principal de distribuição**, visando uma experiência consistente entre distribuições e futura publicação no Flathub. O backend de captura e as permissões de câmera/microfone/armazenamento precisarão ser adaptados ao ecossistema Linux.
+- **Linux** — versão planejada com **Flatpak como formato principal de distribuição**, visando uma experiência consistente entre distribuições e futura publicação no **Flathub**. Como opção secundária, também poderá existir uma build **AppImage** para uso portátil e instalação sem integração com loja. O backend de captura e as permissões de câmera/microfone/armazenamento precisarão ser adaptados ao ecossistema Linux.
 - **macOS** — versão planejada, incluindo adaptação às APIs de captura, permissões de câmera/microfone e empacotamento do macOS.
 
 A versão atual continua sendo **Windows x64**. Windows ARM64, Linux e macOS ainda não possuem builds públicas nem prazo de lançamento anunciado.
