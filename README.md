@@ -38,6 +38,29 @@ O projeto foi pensado principalmente para cenários como:
 - proteção contra perda de gravações quando a internet ou a pasta em nuvem fica temporariamente indisponível;
 - consulta posterior das gravações pelo próprio aplicativo.
 
+## Perfis de uso
+
+O CameraGuard foi pensado como uma ferramenta de **proteção, registro e respaldo**, e não apenas como um gravador comum.
+
+| Perfil | Exemplos de uso | Objetivo |
+|---|---|---|
+| **Pessoal** | casa, escritório particular, bancada, garagem | registrar eventos e aumentar a segurança do ambiente |
+| **Educacional** | aula particular, sala de reforço, laboratório, atendimento supervisionado | documentar incidentes e dar respaldo a alunos, responsáveis e profissionais |
+| **Profissional** | escritório, recepção, loja, restaurante, coworking | registrar situações relevantes em áreas autorizadas |
+| **CFTV leve** | pequenos negócios, salas técnicas, postos de atendimento | gravação prolongada com baixo consumo e recuperação simples |
+
+Em cenários educacionais, especialmente quando houver crianças, o CameraGuard deve ser utilizado com ciência dos responsáveis, finalidade definida, acesso restrito às gravações e respeito às regras de privacidade aplicáveis.
+
+## Plataformas
+
+| Plataforma | Estado |
+|---|---|
+| **Windows 10/11 x64** | ✅ **Disponível — v0.16.0** |
+| **Linux** | 🧭 Planejado |
+| **macOS** | 🧭 Planejado |
+
+A arquitetura futura pretende manter o núcleo de gravação e armazenamento compartilhado e adaptar a camada de captura às APIs nativas de cada sistema.
+
 ## Principais recursos
 
 - **Gravação contínua de vídeo e áudio**
