@@ -81,11 +81,9 @@ A arquitetura futura pretende manter o núcleo de gravação e armazenamento com
 - Atualizador integrado via **GitHub Releases**
 - Instalador por usuário, sem necessidade de privilégios administrativos
 
-## Como funciona o armazenamento
+## Armazenamento e consumo estimado
 
-O CameraGuard evita gravar diretamente em uma pasta de nuvem durante a captura.
-
-A arquitetura utilizada é:
+O CameraGuard evita gravar diretamente em uma pasta de nuvem durante a captura. A gravação acontece primeiro em um **buffer local**, e somente arquivos já fechados e validados seguem para o destino de arquivamento.
 
 ```text
 Câmera + Microfone
@@ -99,9 +97,46 @@ arquivo fechado e validado
 Pasta de arquivamento / nuvem
 ```
 
-Isso mantém a gravação funcionando mesmo quando a internet ou o cliente de sincronização apresenta lentidão ou indisponibilidade temporária.
+Isso mantém a captura fora do caminho crítico da internet ou do cliente de sincronização. Se a nuvem ficar lenta ou temporariamente indisponível, o CameraGuard continua gravando localmente e tenta arquivar os arquivos depois.
 
-Arquivos já fechados são transferidos para o destino configurado, enquanto o buffer local funciona como margem de segurança.
+### Quanto espaço a gravação ocupa?
+
+No perfil CFTV atual, em um ensaio físico prolongado, foi observado consumo próximo de **0,355 GiB por hora**, aproximadamente **360 MB/h**.
+
+A partir dessa taxa, uma referência prática é:
+
+| Tempo de gravação contínua | Espaço aproximado |
+|---|---:|
+| 1 hora | ~0,36 GiB |
+| 8 horas | ~2,8 GiB |
+| 12 horas | ~4,3 GiB |
+| 24 horas | ~8,5 GiB |
+| 7 dias | ~60 GiB |
+| 30 dias | ~256 GiB |
+
+Uma estimativa aproximada de retenção, considerando o disco dedicado integralmente às gravações, seria:
+
+| Capacidade nominal | Retenção aproximada |
+|---|---:|
+| 64 GB | ~7 dias |
+| 128 GB | ~14 dias |
+| 256 GB | ~28 dias |
+| 512 GB | ~56 dias |
+| 1 TB | ~109 dias |
+
+> Esses números são **estimativas**, não limites fixos. O consumo real varia conforme quantidade de movimento na cena, câmera utilizada, encoder disponível, bitrate, áudio, perfil de qualidade e configurações avançadas.
+
+Como referência adicional, **4 GiB de buffer local representam cerca de 11 horas de gravação** nessa taxa. O buffer funciona como margem de segurança antes do arquivamento para o destino configurado.
+
+### Estratégia de armazenamento
+
+O objetivo é manter três propriedades:
+
+- **continuidade** — a gravação não depende da internet para continuar;
+- **baixo I/O** — o CameraGuard evita usar a pasta de nuvem diretamente como destino ativo do FFmpeg;
+- **recuperação** — arquivos já concluídos podem ser arquivados posteriormente quando o destino voltar a ficar disponível.
+
+O destino pode ser uma pasta local, outro disco ou uma pasta sincronizada por serviços como Google Drive Desktop.
 
 ## Atualizações
 
@@ -166,23 +201,6 @@ A desinstalação preserva os dados do usuário e não remove automaticamente as
 - Espaço livre em disco para o buffer e as gravações
 
 O pacote é **self-contained**: não é necessário instalar o .NET separadamente.
-
-## Validação da v0.16.0
-
-A release **0.16.0 / R016.13** passou pela validação completa do projeto antes da publicação:
-
-| Verificação | Resultado |
-|---|---|
-| Build | 0 warnings / 0 errors |
-| Publish self-contained | PASS |
-| Smoke HLS/fMP4 | PASS |
-| Interface e configurações | PASS |
-| Preflight | PASS |
-| Gravação física | PASS |
-| Diagnóstico durante gravação | PASS |
-| Encerramento limpo | PASS |
-| FFmpeg órfão após saída | 0 |
-| Eventos relevantes de crash | 0 |
 
 ## Privacidade
 
