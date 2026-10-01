@@ -166,6 +166,8 @@ O CameraGuard foi desenvolvido para executar a captura localmente no computador.
 
 O usuário é responsável por configurar o ambiente, o destino das gravações e por utilizar câmera e microfone de acordo com as leis, políticas internas e regras de privacidade aplicáveis ao local onde o programa estiver sendo usado.
 
+Recursos futuros que envolvam automação de vigilância, auditoria ou captura adicional de dados serão projetados com controles explícitos de ativação, transparência e privacidade.
+
 ## Segurança do download
 
 Para reduzir o risco de arquivos incorretos ou corrompidos:
@@ -185,17 +187,43 @@ O projeto utiliza principalmente:
 - Inno Setup
 - GitHub Releases para distribuição e atualização
 
+## Roadmap
+
+O CameraGuard continuará evoluindo além da primeira release pública. O roadmap atual é indicativo e pode mudar conforme testes e prioridades do projeto.
+
+### Próximos passos
+
+- **Modo de proteção ao bloquear a sessão do Windows**: iniciar ou manter a gravação quando o usuário usar `Win + L`, preservando o computador bloqueado enquanto o ambiente continua sendo monitorado.
+- Refinamento do consumo de CPU, memória e armazenamento em gravações longas.
+- Melhorias no histórico, recuperação e gerenciamento das gravações.
+- Novos controles de privacidade e políticas para cenários corporativos.
+- Melhorias de instalação, atualização e diagnóstico.
+
+### Multiplataforma
+
+Está planejada a expansão do CameraGuard para outros sistemas operacionais:
+
+- **Linux** — versão planejada, com adaptação do backend de captura e integração com dispositivos de vídeo/áudio do sistema.
+- **macOS** — versão planejada, incluindo adaptação às APIs de captura, permissões de câmera/microfone e empacotamento do macOS.
+
+A versão atual continua sendo **Windows x64**. Linux e macOS ainda não possuem builds públicas nem prazo de lançamento anunciado.
+
+### Em estudo
+
+Também estão sendo estudados novos recursos de segurança e auditoria para uso pessoal e corporativo. Funcionalidades que envolvam dados adicionais do usuário ou do ambiente somente serão promovidas a recursos públicos após avaliação técnica, de privacidade e de conformidade.
+
 ## Status do projeto
 
 **v0.16.0 / R016.13 — primeira release pública estável.**
 
-Próximas versões continuarão priorizando:
+As próximas versões continuarão priorizando:
 
 - baixo consumo;
 - estabilidade em gravações longas;
 - melhor experiência de vigilância;
 - automação de proteção e recuperação;
-- melhorias de usabilidade.
+- expansão multiplataforma;
+- melhorias de usabilidade e privacidade.
 
 ## Licença
 
