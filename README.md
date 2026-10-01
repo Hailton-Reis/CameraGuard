@@ -56,7 +56,8 @@ Em cenários educacionais, especialmente quando houver crianças, o CameraGuard 
 | Plataforma | Estado |
 |---|---|
 | **Windows 10/11 x64** | ✅ **Disponível — v0.16.0** |
-| **Linux** | 🧭 Planejado |
+| **Windows ARM64** | 🧭 Em breve |
+| **Linux (Flatpak)** | 🧭 Planejado |
 | **macOS** | 🧭 Planejado |
 
 A arquitetura futura pretende manter o núcleo de gravação e armazenamento compartilhado e adaptar a camada de captura às APIs nativas de cada sistema.
@@ -226,10 +227,11 @@ O CameraGuard continuará evoluindo além da primeira release pública. O roadma
 
 Está planejada a expansão do CameraGuard para outros sistemas operacionais:
 
-- **Linux** — versão planejada, com adaptação do backend de captura e integração com dispositivos de vídeo/áudio do sistema.
+- **Windows ARM64** — planejado como uma futura build nativa, mantendo a base atual e adaptando dependências/binários nativos quando necessário.
+- **Linux** — versão planejada com **Flatpak como formato principal de distribuição**, visando uma experiência consistente entre distribuições e futura publicação no Flathub. O backend de captura e as permissões de câmera/microfone/armazenamento precisarão ser adaptados ao ecossistema Linux.
 - **macOS** — versão planejada, incluindo adaptação às APIs de captura, permissões de câmera/microfone e empacotamento do macOS.
 
-A versão atual continua sendo **Windows x64**. Linux e macOS ainda não possuem builds públicas nem prazo de lançamento anunciado.
+A versão atual continua sendo **Windows x64**. Windows ARM64, Linux e macOS ainda não possuem builds públicas nem prazo de lançamento anunciado.
 
 ### Em estudo
 
